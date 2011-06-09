@@ -6,7 +6,6 @@ For more information, see http://async-observer.rubyforge.org/.
 For more information on Beanstalk, see its home page at
 http://xph.us/software/beanstalkd/.
 
-
 Worker Options:
 -d                                : daemonize
 --pid [path to pidfile]           : drop a pid file to a path
@@ -14,10 +13,19 @@ Worker Options:
 
 Example Usage:
 
+For Rails 2.3.* workers:
+
 start 3 workers
   ./vendor/plugins/async_observer/bin/worker -d --pid log/worker1.pid -e production
   ./vendor/plugins/async_observer/bin/worker -d --pid log/worker2.pid -e production
   ./vendor/plugins/async_observer/bin/worker -d --pid log/worker3.pid -e production
+
+For Rails 3.x workers:
+
+start 3 workers
+  ./vendor/plugins/async_observer/bin/worker3 -d --pid log/worker1.pid -e production
+  ./vendor/plugins/async_observer/bin/worker3 -d --pid log/worker2.pid -e production
+  ./vendor/plugins/async_observer/bin/worker3 -d --pid log/worker3.pid -e production
 
 kill one
   kill -s INT `cat log/worker1.pid`
